@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrónomo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Metrónomo</h1>
+        
+        <div class="bpm-display">
+            <span id="bpm-value">120</span>
+            <span class="bpm-label">BPM</span>
+        </div>
+        
+        <div class="beat-indicator">
+            <div class="beat-dot" id="beat-dot"></div>
+        </div>
+        
+        <div class="controls">
+            <input 
+                type="range" 
+                id="bpm-slider" 
+                min="40" 
+                max="220" 
+                value="120"
+            >
+            <div class="bpm-range">
+                <span>40</span>
+                <span>220</span>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <input 
+                type="number" 
+                id="bpm-input" 
+                min="40" 
+                max="220" 
+                value="120"
+            >
+            <span>BPM</span>
+        </div>
+        
+        <button id="play-btn" class="play-btn">
+            <span id="btn-icon">▶</span>
+            <span id="btn-text">Iniciar</span>
+        </button>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
