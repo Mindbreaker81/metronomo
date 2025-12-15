@@ -30,6 +30,28 @@ class Metronome {
                 this.toggle();
             }
         });
+
+        // iOS: unlock audio on first touch anywhere
+        const unlockAudio = () => {
+            if (!this.audioContext) {
+                this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (this.audioContext.state === 'suspended') {
+                this.audioContext.resume();
+            }
+            // Play silent buffer to unlock
+            const buffer = this.audioContext.createBuffer(1, 1, 22050);
+            const source = this.audioContext.createBufferSource();
+            source.buffer = buffer;
+            source.connect(this.audioContext.destination);
+            source.start(0);
+            
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('touchend', unlockAudio);
+        };
+        
+        document.addEventListener('touchstart', unlockAudio);
+        document.addEventListener('touchend', unlockAudio);
     }
     
     setBpm(value) {
@@ -75,6 +97,11 @@ class Metronome {
     start() {
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        // iOS: ensure audio context is running
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume();
         }
         
         this.isPlaying = true;
