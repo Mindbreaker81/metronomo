@@ -7,6 +7,7 @@ class Metronome {
         this.timerID = null;
         this.scheduleAheadTime = 0.1;
         this.lookahead = 25;
+        this.wakeLock = null;
         
         this.bpmValue = document.getElementById('bpm-value');
         this.bpmSlider = document.getElementById('bpm-slider');
@@ -94,12 +95,11 @@ class Metronome {
         this.timerID = setTimeout(() => this.scheduler(), this.lookahead);
     }
     
-    start() {
+    async start() {
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
         
-        // iOS: ensure audio context is running
         if (this.audioContext.state === 'suspended') {
             this.audioContext.resume();
         }
@@ -111,9 +111,17 @@ class Metronome {
         this.playBtn.classList.add('playing');
         this.btnIcon.textContent = '⏹';
         this.btnText.textContent = 'Detener';
+        
+        try {
+            if ('wakeLock' in navigator) {
+                this.wakeLock = await navigator.wakeLock.request('screen');
+            }
+        } catch (err) {
+            console.log('Wake Lock error:', err);
+        }
     }
     
-    stop() {
+    async stop() {
         this.isPlaying = false;
         clearTimeout(this.timerID);
         
@@ -121,6 +129,15 @@ class Metronome {
         this.btnIcon.textContent = '▶';
         this.btnText.textContent = 'Iniciar';
         this.beatDot.classList.remove('active');
+        
+        if (this.wakeLock) {
+            try {
+                await this.wakeLock.release();
+                this.wakeLock = null;
+            } catch (err) {
+                console.log('Wake Lock release error:', err);
+            }
+        }
     }
     
     toggle() {
