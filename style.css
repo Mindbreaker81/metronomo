@@ -182,3 +182,159 @@ h1 {
 #btn-icon {
     font-size: 1rem;
 }
+
+.instructions {
+    margin-top: 40px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.instructions h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #4fc3f7;
+    font-weight: 400;
+}
+
+.instructions ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.instructions li {
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+.instructions li::before {
+    content: "•";
+    color: #4fc3f7;
+    margin-right: 10px;
+}
+
+.device-notices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notice {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notice.mobile {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid #ffc107;
+    color: #ffd54f;
+}
+
+.notice.tablet {
+    background: rgba(33, 150, 243, 0.1);
+    border-left: 3px solid #2196f3;
+    color: #64b5f6;
+}
+
+.notice.desktop {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4caf50;
+    color: #81c784;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer p {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: #4fc3f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #29b6f6;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 20px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    #bpm-value {
+        font-size: 3.5rem;
+    }
+
+    .bpm-label {
+        font-size: 1.2rem;
+    }
+
+    .beat-indicator,
+    .controls,
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .play-btn {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+
+    .instructions {
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .instructions h3 {
+        font-size: 1rem;
+    }
+
+    .instructions li {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+
+    .notice {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 380px) {
+    #bpm-value {
+        font-size: 3rem;
+    }
+
+    .play-btn {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+}
