@@ -13,7 +13,6 @@ class Metronome {
 
         // Settings
         this.soundType = 'click';
-        this.vibrationEnabled = false;
         this.flashEnabled = false;
 
         // Advanced settings
@@ -42,7 +41,6 @@ class Metronome {
         this.beatDot = document.getElementById('beat-dot');
         this.measureNumber = document.getElementById('measure-number');
         this.soundSelect = document.getElementById('sound-select');
-        this.vibrationToggle = document.getElementById('vibration-toggle');
         this.flashToggle = document.getElementById('flash-toggle');
         this.tapTempoBtn = document.getElementById('tap-tempo-btn');
         this.presetsList = document.getElementById('presets-list');
@@ -80,11 +78,6 @@ class Metronome {
         // Sound selector
         this.soundSelect.addEventListener('change', (e) => {
             this.soundType = e.target.value;
-        });
-
-        // Vibration toggle
-        this.vibrationToggle.addEventListener('change', (e) => {
-            this.vibrationEnabled = e.target.checked;
         });
 
         // Flash toggle
@@ -211,9 +204,6 @@ class Metronome {
             const visualDelay = (time - this.audioContext.currentTime) * 1000;
             setTimeout(() => {
                 this.flashBeat(isAccent);
-                if (this.vibrationEnabled && 'vibrate' in navigator) {
-                    navigator.vibrate(isAccent ? 80 : 50);
-                }
                 if (this.flashEnabled) {
                     this.triggerFlash();
                 }
