@@ -101,6 +101,57 @@
             </button>
         </div>
 
+        <!-- Advanced Mode Toggle -->
+        <div class="advanced-toggle-section">
+            <div class="toggle-item">
+                <span class="toggle-label"><i class="fas fa-sliders-h"></i> Modo Avanzado</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="advanced-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Advanced Options Panel -->
+        <div class="advanced-panel collapsed" id="advanced-panel">
+            <div class="advanced-section">
+                <h4><i class="fas fa-clock"></i> Compás (Time Signature)</h4>
+                <div class="time-signature-selector">
+                    <button class="ts-btn active" data-ts="4">4/4</button>
+                    <button class="ts-btn" data-ts="3">3/4</button>
+                    <button class="ts-btn" data-ts="2">2/4</button>
+                    <button class="ts-btn" data-ts="6">6/8</button>
+                </div>
+            </div>
+
+            <div class="advanced-section">
+                <h4><i class="fas fa-cut"></i> Subdivisiones</h4>
+                <div class="subdivision-selector">
+                    <button class="sub-btn active" data-sub="1">Ninguna</button>
+                    <button class="sub-btn" data-sub="2">Corcheas</button>
+                    <button class="sub-btn" data-sub="3">Tercinas</button>
+                    <button class="sub-btn" data-sub="4">Semicorcheas</button>
+                </div>
+            </div>
+
+            <div class="advanced-section">
+                <h4><i class="fas fa-hand-pointer"></i> Tap Tempo Mejorado</h4>
+                <div class="tap-tempo-display" id="tap-tempo-display">
+                    <div class="tap-history" id="tap-history">
+                        <span class="tap-placeholder">Pulsa al ritmo...</span>
+                    </div>
+                    <div class="tap-info">
+                        <span class="tap-avg-label">Promedio:</span>
+                        <span class="tap-avg-value" id="tap-avg-value">--</span>
+                        <span class="tap-stability" id="tap-stability"></span>
+                    </div>
+                    <button class="tap-reset-btn" id="tap-reset-btn" title="Resetear taps">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <button id="play-btn" class="play-btn">
             <span id="btn-icon">▶</span>
             <span id="btn-text">Iniciar</span>
@@ -119,7 +170,17 @@
                     <li>Guarda tus BPMs frecuentes con el botón <strong>Guardar</strong></li>
                     <li>Activa <strong>Vibrar</strong> para feedback táctil en móviles</li>
                     <li>Activa <strong>Flash</strong> para que la pantalla parpadee con cada beat</li>
+                    <li>Activa <strong>Modo Avanzado</strong> para compás, subdivisiones y tap mejorado</li>
                 </ul>
+
+                <div class="advanced-features-list">
+                    <p class="advanced-features-title">Modo Avanzado incluye:</p>
+                    <ul>
+                        <li><strong>Compás:</strong> 4/4, 3/4, 2/4, 6/8 con acento en el primer beat</li>
+                        <li><strong>Subdivisiones:</strong> Corcheas, tercinas, semicorcheas</li>
+                        <li><strong>Tap Mejorado:</strong> Historial, promedio y estabilidad</li>
+                    </ul>
+                </div>
 
                 <div class="device-notices">
                     <div class="notice mobile">

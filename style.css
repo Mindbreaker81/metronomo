@@ -845,3 +845,346 @@ footer a {
         justify-content: center;
     }
 }
+
+/* ==================== ADVANCED MODE ==================== */
+.advanced-toggle-section {
+    margin-bottom: 20px;
+}
+
+.advanced-panel {
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.advanced-panel.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+.advanced-section {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+
+.dark-theme .advanced-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light-theme .advanced-section {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.advanced-section h4 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dark-theme .advanced-section h4 { color: #4fc3f7; }
+.light-theme .advanced-section h4 { color: #2196f3; }
+
+/* Time Signature Selector */
+.time-signature-selector,
+.subdivision-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.ts-btn,
+.sub-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid;
+}
+
+.dark-theme .ts-btn,
+.dark-theme .sub-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #aaa;
+}
+
+.light-theme .ts-btn,
+.light-theme .sub-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #666;
+}
+
+.ts-btn:hover,
+.sub-btn:hover {
+    transform: translateY(-2px);
+}
+
+.dark-theme .ts-btn:hover,
+.dark-theme .sub-btn:hover {
+    background: rgba(79, 195, 247, 0.15);
+    border-color: rgba(79, 195, 247, 0.4);
+    color: #4fc3f7;
+}
+
+.light-theme .ts-btn:hover,
+.light-theme .sub-btn:hover {
+    background: rgba(33, 150, 243, 0.15);
+    border-color: rgba(33, 150, 243, 0.4);
+    color: #2196f3;
+}
+
+.ts-btn.active,
+.sub-btn.active {
+    font-weight: 600;
+}
+
+.dark-theme .ts-btn.active,
+.dark-theme .sub-btn.active {
+    background: rgba(79, 195, 247, 0.25);
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+}
+
+.light-theme .ts-btn.active,
+.light-theme .sub-btn.active {
+    background: rgba(33, 150, 243, 0.25);
+    border-color: #2196f3;
+    color: #2196f3;
+}
+
+/* Tap Tempo Improved */
+.tap-tempo-display {
+    text-align: center;
+}
+
+.tap-history {
+    min-height: 30px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.tap-placeholder {
+    opacity: 0.5;
+}
+
+.dark-theme .tap-placeholder { color: #666; }
+.light-theme .tap-placeholder { color: #999; }
+
+.tap-bpm {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.dark-theme .tap-bpm {
+    background: rgba(79, 195, 247, 0.1);
+    color: #4fc3f7;
+}
+
+.light-theme .tap-bpm {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+}
+
+.tap-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.tap-avg-label {
+    opacity: 0.7;
+}
+
+.dark-theme .tap-avg-label { color: #888; }
+.light-theme .tap-avg-label { color: #666; }
+
+.tap-avg-value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.dark-theme .tap-avg-value { color: #4fc3f7; }
+.light-theme .tap-avg-value { color: #2196f3; }
+
+.tap-stability {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.tap-stability.good {
+    background: rgba(76, 175, 80, 0.2);
+    color: #81c784;
+}
+
+.tap-stability.medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffd54f;
+}
+
+.tap-stability.poor {
+    background: rgba(244, 67, 54, 0.2);
+    color: #ef5350;
+}
+
+.tap-reset-btn {
+    background: none;
+    border: 1px dashed;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.dark-theme .tap-reset-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #888;
+}
+
+.light-theme .tap-reset-btn {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #666;
+}
+
+.tap-reset-btn:hover {
+    transform: scale(1.05);
+}
+
+.dark-theme .tap-reset-btn:hover {
+    border-color: #ef5350;
+    color: #ef5350;
+}
+
+.light-theme .tap-reset-btn:hover {
+    border-color: #f44336;
+    color: #f44336;
+}
+
+/* ==================== INSTRUCTIONS - SCROLL FIX ==================== */
+.instructions-content {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar for webkit */
+.instructions-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.instructions-content::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.1);
+    border-radius: 3px;
+}
+
+.dark-theme .instructions-content::-webkit-scrollbar-thumb {
+    background: rgba(79, 195, 247, 0.3);
+    border-radius: 3px;
+}
+
+.light-theme .instructions-content::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.3);
+    border-radius: 3px;
+}
+
+.advanced-features-list {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.dark-theme .advanced-features-list {
+    background: rgba(79, 195, 247, 0.08);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+}
+
+.light-theme .advanced-features-list {
+    background: rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.15);
+}
+
+.advanced-features-title {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.dark-theme .advanced-features-title { color: #4fc3f7; }
+.light-theme .advanced-features-title { color: #2196f3; }
+
+.advanced-features-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.advanced-features-list li {
+    padding: 4px 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.dark-theme .advanced-features-list li { color: #aaa; }
+.light-theme .advanced-features-list li { color: #666; }
+
+.advanced-features-list li::before {
+    content: "→";
+    margin-right: 8px;
+}
+
+.dark-theme .advanced-features-list li::before { color: #4fc3f7; }
+.light-theme .advanced-features-list li::before { color: #2196f3; }
+
+/* Responsive for advanced panel */
+@media (max-width: 600px) {
+    .advanced-section {
+        padding: 12px;
+    }
+
+    .advanced-section h4 {
+        font-size: 0.9rem;
+    }
+
+    .ts-btn,
+    .sub-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .tap-info {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .instructions-content {
+        max-height: 300px;
+    }
+
+    .advanced-features-list {
+        padding: 10px;
+    }
+}
+
