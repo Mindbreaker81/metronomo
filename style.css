@@ -190,30 +190,64 @@ h1 {
     text-align: left;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
-    padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
 }
 
-.instructions h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+.instructions-toggle {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
     color: #4fc3f7;
+    font-size: 1.1rem;
     font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
 }
 
-.instructions ul {
+.instructions-toggle:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.instructions-toggle .arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.instructions-toggle.active .arrow {
+    transform: rotate(180deg);
+}
+
+.instructions-content {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.instructions-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+.instructions-content ul {
     list-style: none;
     margin-bottom: 15px;
+    padding: 0 20px 20px;
 }
 
-.instructions li {
+.instructions-content li {
     padding: 8px 0;
     font-size: 0.95rem;
     color: #aaa;
     line-height: 1.5;
 }
 
-.instructions li::before {
+.instructions-content li::before {
     content: "•";
     color: #4fc3f7;
     margin-right: 10px;
@@ -223,7 +257,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 15px;
+    padding: 0 20px 20px;
 }
 
 .notice {
@@ -304,14 +338,14 @@ footer a:hover {
 
     .instructions {
         margin-top: 30px;
-        padding: 15px;
     }
 
-    .instructions h3 {
+    .instructions-toggle {
+        padding: 15px;
         font-size: 1rem;
     }
 
-    .instructions li {
+    .instructions-content li {
         font-size: 0.9rem;
         padding: 6px 0;
     }

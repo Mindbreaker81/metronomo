@@ -151,4 +151,14 @@ class Metronome {
 
 document.addEventListener('DOMContentLoaded', () => {
     new Metronome();
+
+    // Instructions toggle
+    const instructionsToggle = document.getElementById('instructions-toggle');
+    const instructionsContent = document.getElementById('instructions-content');
+    const instructionsArrow = document.getElementById('instructions-arrow');
+
+    instructionsToggle.addEventListener('click', () => {
+        instructionsContent.classList.toggle('collapsed');
+        instructionsToggle.classList.toggle('active');
+    });
 });
