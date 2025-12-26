@@ -5,26 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metrónomo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+    <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">
+        <i class="fas fa-sun"></i>
+    </button>
+
     <div class="container">
         <h1>Metrónomo</h1>
-        
+
+        <!-- Beat Counter -->
+        <div class="measure-counter">
+            <span class="measure-label">Compás</span>
+            <span class="measure-number" id="measure-number">1</span>
+        </div>
+
         <div class="bpm-display">
             <span id="bpm-value">120</span>
             <span class="bpm-label">BPM</span>
         </div>
-        
+
         <div class="beat-indicator">
             <div class="beat-dot" id="beat-dot"></div>
         </div>
-        
+
         <div class="controls">
-            <input 
-                type="range" 
-                id="bpm-slider" 
-                min="40" 
-                max="220" 
+            <input
+                type="range"
+                id="bpm-slider"
+                min="40"
+                max="220"
                 value="120"
             >
             <div class="bpm-range">
@@ -32,18 +43,64 @@
                 <span>220</span>
             </div>
         </div>
-        
+
         <div class="input-group">
-            <input 
-                type="number" 
-                id="bpm-input" 
-                min="40" 
-                max="220" 
+            <input
+                type="number"
+                id="bpm-input"
+                min="40"
+                max="220"
                 value="120"
             >
             <span>BPM</span>
         </div>
-        
+
+        <!-- Tap Tempo -->
+        <button class="tap-tempo-btn" id="tap-tempo-btn">
+            <i class="fas fa-hand-pointer"></i>
+            <span>Tap Tempo</span>
+        </button>
+
+        <!-- Sound Selector -->
+        <div class="sound-selector">
+            <label for="sound-select">Sonido:</label>
+            <select id="sound-select">
+                <option value="click">Click</option>
+                <option value="beep">Beep</option>
+                <option value="woodblock">Woodblock</option>
+                <option value="digital">Digital</option>
+            </select>
+        </div>
+
+        <!-- Toggles -->
+        <div class="toggles-row">
+            <div class="toggle-item">
+                <span class="toggle-label"><i class="fas fa-mobile-vibrate"></i> Vibrar</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="vibration-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="toggle-item">
+                <span class="toggle-label"><i class="fas fa-bolt"></i> Flash</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="flash-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- BPM Presets -->
+        <div class="presets-section">
+            <span class="presets-label">Guardados:</span>
+            <div class="presets-list" id="presets-list">
+                <span class="no-presets">Sin presets</span>
+            </div>
+            <button class="save-preset-btn" id="save-preset-btn" title="Guardar BPM actual">
+                <i class="fas fa-plus"></i> Guardar
+            </button>
+        </div>
+
         <button id="play-btn" class="play-btn">
             <span id="btn-icon">▶</span>
             <span id="btn-text">Iniciar</span>
@@ -58,7 +115,10 @@
                 <ul>
                     <li>Ajusta los BPM usando el deslizador o introduce un valor (40-220)</li>
                     <li>Pulsa <strong>Iniciar</strong> o la barra espaciadora para comenzar</li>
-                    <li>El punto azul parpadea con cada beat</li>
+                    <li>Usa <strong>Tap Tempo</strong> para marcar el ritmo manualmente</li>
+                    <li>Guarda tus BPMs frecuentes con el botón <strong>Guardar</strong></li>
+                    <li>Activa <strong>Vibrar</strong> para feedback táctil en móviles</li>
+                    <li>Activa <strong>Flash</strong> para que la pantalla parpadee con cada beat</li>
                 </ul>
 
                 <div class="device-notices">
